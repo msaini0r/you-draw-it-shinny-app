@@ -1,0 +1,89 @@
+---
+title: "Creating the ``r params$package_name`` R package"
+author: "Mohit Saini"
+date: "01/18/2023"
+knit: litr::render
+output: litr::litr_html_document
+params:
+  package_name: "shinydrawer" # <-- change this to your package name
+  package_parent_dir: "." # <-- relative to this file's location
+---
+
+<!-- This Rmd file contains all the code needed to define an R package.  Press "Knit" in RStudio or more generally run `litr::render("name-of-this-file.Rmd")` to generate the R package.  Remember that when you want to modify anything about the R package, you should modify this document rather than the package that is outputted.
+-->
+
+## Package setup
+
+We start by specifying the information needed in the DESCRIPTION file of the R package.
+
+```{r package-setup, message=FALSE, results='hide'}
+usethis::create_package(
+  path = ".",
+  fields = list(
+    Package = params$package_name,
+    Version = "0.0.0.1",
+    Title = "A Package That contains a shinydrawer function code.",
+    Description = "This package code for the shinydrawer function as per the test case.",
+    `Authors@R` = person(
+      given = "Mohit",
+      family = "Saini",
+      email = "msaini0r@gmail.com",
+      role = c("aut", "cre")
+      )
+  )
+)
+usethis::use_mit_license(copyright_holder = "Mohit. Saini")
+```
+
+## Now to the package itself
+
+### Define a function
+
+Let's define a function for our R package:
+
+```{r}
+#'
+
+shinydrawr <- function(){
+    
+    line_data <- linear_data() %>%
+        filter(data == "line_data")
+    
+    point_data <- linear_data() %>%
+        filter(data == "point_data")
+    
+    data <- list(line_data = line_data, point_data = point_data)
+    
+    drawr(data              = data,
+          aspect_ratio      = 1,
+          linear            = "true",
+          free_draw         = TRUE,
+          points            = "full",
+          x_by              = 0.25,
+          draw_start        = 1,
+          points_end        = 20,
+          show_finished     = T,
+          shiny_message_loc = message_loc,
+          x_range           = linear_x_range(),
+          y_range           = linear_y_range()
+    )
+    
+}
+```
+
+Code chunks whose first line starts with `#'` are added to the package.
+
+We can try running it.
+
+## Documenting the package and building
+
+We finish by running commands that will document, build, and install the package.  It may also be a good idea to check the package from within this file.
+
+```{r}
+litr::document() # <-- use instead of devtools::document()
+# devtools::build()
+# devtools::install()
+# devtools::check(document = FALSE)
+```
+
+
