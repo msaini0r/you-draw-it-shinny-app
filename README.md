@@ -4,8 +4,8 @@
 | :---             |                                    :----:                                      |             ---: |
 | Mohit Saini      | **[Repository Link](https://github.com/msaini0r/you-draw-it-shinny-app)**      | **[Link](https://msaini0r.shinyapps.io/you-draw-it-shiny-app/)**|
  
- **Summary:** Simple RShiny application example for the 'You Draw It' feature.
- 
+ **Summary:** <h3> Completed all test cases including easy, medium & hard.</h3>
+ <hr>
  ‘You Draw It’ is a feature that allows users to interact with a chart directly by drawing a line on their computer screen with a mouse. Originally introduced by the [New York Times](https://www.nytimes.com/interactive/2015/05/28/upshot/you-draw-it-how-family-income-affects-childrens-college-chances.html) in 2015 for the purpose of interactive reading, we aimed to adapt and demonstrate the use of the ‘You Draw It’ method as a tool for interactive testing of graphics.
  
 Test out the development applet [here](https://emily-robinson.shinyapps.io/can-you-draw-it/).
